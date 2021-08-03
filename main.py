@@ -1,7 +1,7 @@
 from Clase_Cargar_Archivo import Cargar_Archivo
 opcion=0
 
-CargarArchivo=Cargar_Archivo()
+ProcesosArchivo=Cargar_Archivo()
 
 while opcion != 4:
     try:
@@ -14,8 +14,9 @@ while opcion != 4:
         print("[-------------------------]")
 
         if opcion == 1:
-            print("archivo cargado: \n")
-            CargarArchivo.Cargar_ArchivoLFP()
+            
+            rutaArchivo=ProcesosArchivo.Seleccionar_Archivo()
+            ProcesosArchivo.Cargar_ArchivoLFP(rutaArchivo)
 
         elif opcion ==2:
             print("entro 2")

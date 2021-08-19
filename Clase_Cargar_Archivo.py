@@ -10,19 +10,42 @@ class Cargar_Archivo():
         RutaArchivo=filedialog.askopenfilename(title="Archivo a cargar")
         windowRoot.mainloop()
         if RutaArchivo != "":
-            print("\n!!Carga exitosa de archivo...!!")
-            time.sleep(2)
+            print("\n!!Carga exitosa de archivo...!!\n")
+            time.sleep(3)
             return RutaArchivo
 
         else:
-            print(">> Archivo no seleccionado <<")
-            time.sleep(2)
+            print("\n>> Archivo no seleccionado <<\n")
+            time.sleep(3)
             return ""
 
 
     def Cargar_ArchivoLFP(self,ruta):
         archivoLFP=open(ruta)
-        texto=archivoLFP.read()
+        TextoArchivo=archivoLFP.readlines()
         archivoLFP.close()
 
-        print(texto)
+        separar=0
+        nuevo=[]
+        enviar=[]
+        posicion=0
+
+        for linea in TextoArchivo:
+
+            for caracter in linea:
+                if "," == caracter:
+                    separar+=1
+
+            if separar>1:
+                separar=0
+                nuevo=linea.split(",")
+
+                for e1 in nuevo:
+                    if e1 != "" and e1 !="\n":
+                        enviar.append(e1)
+                nuevo=[]
+            else:
+                enviar.append(linea)
+                separar=0
+        
+        return enviar

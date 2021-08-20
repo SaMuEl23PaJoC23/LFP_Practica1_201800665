@@ -44,7 +44,7 @@ while opcion != 4:
             else:
                 print("\n>> Primero debe mostrar el reporte en -consola- <<\n")
                 time.sleep(3)
-    except SyntaxError:
+    except ValueError:
         print(">> !! Solo numeros !! <<")
     
 print("finalizado...")

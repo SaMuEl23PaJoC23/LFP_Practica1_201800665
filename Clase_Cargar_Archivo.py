@@ -45,7 +45,14 @@ class Cargar_Archivo():
                         enviar.append(e1)
                 nuevo=[]
             else:
+                if "}" in linea:
+                    nuevo=linea.split(",")
+
+                    for e1 in nuevo:
+                        if e1 != "" and e1 !="\n":
+                            enviar.append(e1)
+                    nuevo=[]
                 enviar.append(linea)
-                separar=0
+                separar=0        
         
         return enviar

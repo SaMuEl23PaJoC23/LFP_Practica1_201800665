@@ -56,7 +56,7 @@ class Mostrar_En_Consola():
                 while True:
                     if TextoArchivo[siguienteLinea][siguienteLetra] != "\t" and TextoArchivo[siguienteLinea][siguienteLetra] != "<" and TextoArchivo[siguienteLinea][siguienteLetra] != " " and completo1 == False:
                         while completo1 == False:   #Se extrae cada alumno almacenado en el arreglo TextoArchivo
-                            alumno+=TextoArchivo[siguienteLinea][siguienteLetra]                      
+                            alumno+=TextoArchivo[siguienteLinea][siguienteLetra]                   
                             
                             if " " in alumno and insertarGuion == False:
                                 alumno=alumno.replace(" ","_")
@@ -170,6 +170,20 @@ class Mostrar_En_Consola():
         totalAlumnos=int(len(alumnosOrdenados)/2)
         print("Cantidad de alumnos:",totalAlumnos)
         Reportar.append(totalAlumnos)
+
+        print("Alumnos pertenecientes al curso")
+        print("---------------------------------")
+        print("  alumno    -    nota")
+        print("------------------------")
+        i=0
+        j=1
+        while True:
+            print(j,"). ",alumnos[i]," - ",alumnos[i+1])
+            i+=2
+            j+=1
+            if i >= len(alumnos):
+                break
+        print("\n")
 
         for TipoOrden in ordenamientos:
             if TipoOrden=="ASC":
